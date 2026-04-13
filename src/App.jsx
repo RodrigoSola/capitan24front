@@ -11,7 +11,8 @@ export default function ProductsManagement() {
   const [editingProduct, setEditingProduct] = useState(null);
   const [formData, setFormData] = useState({
     title: '',
-    price: '',
+    dayPrice: '',
+    nightPrice: ''
     
   });
   const [loading, setLoading] = useState(false);
@@ -140,7 +141,7 @@ export default function ProductsManagement() {
   return (
     <div className="app-container">
       <div className="header">
-        <h1>📚Administracion de Productos </h1>
+        <h1>📚Capitan 24 </h1>
         <p>Sistema de administración de inventario</p>
       </div>
 
@@ -193,11 +194,25 @@ export default function ProductsManagement() {
              
               <div className="form-row">
                 <div className="form-group">
-                  <label>Precio</label>
+                  <label>Precio Dia</label>
                   <input
                     type="number"
                     name="price"
-                    value={formData.price}
+                    value={formData.dayPrice}
+                    onChange={handleInputChange}
+                    step="1"
+                    min="0"
+                  />
+                </div>
+                
+              </div>
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Precio Noche</label>
+                  <input
+                    type="number"
+                    name="price"
+                    value={formData.nightPrice}
                     onChange={handleInputChange}
                     step="1"
                     min="0"
