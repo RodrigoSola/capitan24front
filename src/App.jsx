@@ -76,7 +76,8 @@ export default function ProductsManagement() {
         },
         body: JSON.stringify({
           title: formData.title,
-          price: Number(formData.price) || 0
+          dayPrice: formData.dayPrice ? parseFloat(formData.dayPrice) : 0,
+          nightPrice: formData.nightPrice ? parseFloat(formData.nightPrice) : 0
           
         })
       });
@@ -100,7 +101,8 @@ export default function ProductsManagement() {
     setEditingProduct(product);
     setFormData({
       title: product.title,
-      price: product.price || ''
+      dayPrice: product.dayPrice || '',
+      nightPrice: product.nightPrice || ''
       
     });
     setShowForm(true);
@@ -134,7 +136,8 @@ export default function ProductsManagement() {
     setEditingProduct(null);
     setFormData({
       title: '',
-      price: ''
+      dayPrice: '',
+      nightPrice: ''
     });
   };
 
@@ -197,7 +200,7 @@ export default function ProductsManagement() {
                   <label>Precio Dia</label>
                   <input
                     type="number"
-                    name="price"
+                    name="dayPrice"
                     value={formData.dayPrice}
                     onChange={handleInputChange}
                     step="1"
@@ -211,7 +214,7 @@ export default function ProductsManagement() {
                   <label>Precio Noche</label>
                   <input
                     type="number"
-                    name="price"
+                    name="nightPrice"
                     value={formData.nightPrice}
                     onChange={handleInputChange}
                     step="1"
@@ -276,10 +279,13 @@ export default function ProductsManagement() {
                   
                   <div className="product-info">
                     <div className="info-item">
-                      <span className="label">Precio:</span>
-                      <span className="value price">${product.price || 0}</span>
+                      <span className="label">Precio Dia:</span>
+                      <span className="value price">${product.dayPrice || 0}</span>
                     </div>
-                    
+                    <div className="info-item">
+                      <span className="label">Precio Noche:</span>
+                      <span className="value price">${product.nightPrice || 0}</span>
+                    </div>
                   </div>
                 </div>
               </div>
