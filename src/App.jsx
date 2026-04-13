@@ -1,7 +1,7 @@
 import  { useState, useEffect } from 'react';
 import { Search, Plus, Edit2, Trash2, X, Save } from 'lucide-react';
 import './App.css';
-const API_URL = 'https://librospapa-api.onrender.com/api/books';
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function ProductsManagement() {
   const [products, setProducts] = useState([]);
