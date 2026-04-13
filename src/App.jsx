@@ -24,8 +24,7 @@ export default function ProductsManagement() {
 
   useEffect(() => {
     const filtered = products.filter(product =>
-      product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.author.toLowerCase().includes(searchTerm.toLowerCase())
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()) 
     );
     setFilteredProducts(filtered);
   }, [searchTerm, products]);
